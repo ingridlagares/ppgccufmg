@@ -161,7 +161,11 @@
 	
 	\vspace{4cm}
 	
-	\textbf{\titulopt}
+	\ifx\idiomaen\undefined
+		\textbf{\tituloen}	%% Capa em português
+	\else
+		\textbf{\tituloen} %% Capa em inglês
+	\fi
 	
 	\vfill
 	
@@ -450,12 +454,12 @@
 	%% Comando utilizado para que a capa não conte na numeração das páginas
 	\cleardoublepage
 	\setcounter{page}{1}
-	
-	\folhaderosto{pt} %% Folha de rosto em português
 
 	\ifx\idiomaen\undefined\else
 		\folhaderosto{en} %% Folha de rosto em inglês
 	\fi
+	
+	\folhaderosto{pt} %% Folha de rosto em português
 	
 	\ifx\fichacatalografica\undefined\else
 		\fazfichacatalografica{\fichacatalografica}
@@ -507,7 +511,10 @@
 	
 	\begin{KeepFromToc}
 		\addtocontents{toc}{\protect\thispagestyle{empty}}
+		\pagestyle{empty}
 		\tableofcontents* %% Sumário
+		\cleardoublepage
+		\pagestyle{headings}
 	\end{KeepFromToc}
 	\endgroup
 }

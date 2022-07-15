@@ -511,7 +511,10 @@
 	
 	\begin{KeepFromToc}
 		\addtocontents{toc}{\protect\thispagestyle{empty}}
+		\pagestyle{empty}
 		\tableofcontents* %% Sumário
+		\cleardoublepage
+		\pagestyle{headings}
 	\end{KeepFromToc}
 	\endgroup
 }

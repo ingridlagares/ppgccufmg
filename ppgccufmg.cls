@@ -162,7 +162,7 @@
 	\vspace{4cm}
 	
 	\ifx\idiomaen\undefined
-		\textbf{\tituloen}	%% Capa em português
+		\textbf{\titulopt}	%% Capa em português
 	\else
 		\textbf{\tituloen} %% Capa em inglês
 	\fi

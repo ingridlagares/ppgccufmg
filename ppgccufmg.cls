@@ -98,6 +98,8 @@
 \define@key{ppgcc}{epigrafeautor}{\defepigrafeautor{#1}} %% Autor do epígrafe
 \define@key{ppgcc}{dedicatoria}{\defdedicatoria{#1}}
 \define@key{ppgcc}{agradecimentos}{\defagradecimentos{#1}}
+\define@key{ppgcc}{listadefiguras}{\deflistadefiguras{#1}} %% Flag que decide se adiciona ou não a lista de figuras no documento
+\define@key{ppgcc}{listadetabelas}{\deflistadetabelas{#1}} %% Flag que decide se adiciona ou não a lista de tabelas no documento
 \define@key{ppgcc}{listascustomizadas}{\deflistascustomizadas{#1}}
 
 
@@ -123,6 +125,8 @@
 \newcommand{\defepigrafeautor}[1]{\def\epigrafeautor{#1}}
 \newcommand{\defdedicatoria}[1]{\def\dedicatoria{#1}}
 \newcommand{\defagradecimentos}[1]{\def\agradecimentos{#1}}
+\newcommand{\deflistadefiguras}[1]{\def\listadefiguras{#1}}
+\newcommand{\deflistadetabelas}[1]{\def\listadetabelas{#1}}
 \newcommand{\deflistascustomizadas}[1]{\def\listascustomizadas{#1}}
 %% ==========================================
 
@@ -157,7 +161,11 @@
 	
 	\vspace{4cm}
 	
-	\textbf{\titulopt}
+	\ifx\idiomaen\undefined
+		\textbf{\tituloen}	%% Capa em português
+	\else
+		\textbf{\tituloen} %% Capa em inglês
+	\fi
 	
 	\vfill
 	
@@ -446,12 +454,12 @@
 	%% Comando utilizado para que a capa não conte na numeração das páginas
 	\cleardoublepage
 	\setcounter{page}{1}
-	
-	\folhaderosto{pt} %% Folha de rosto em português
 
 	\ifx\idiomaen\undefined\else
 		\folhaderosto{en} %% Folha de rosto em inglês
 	\fi
+	
+	\folhaderosto{pt} %% Folha de rosto em português
 	
 	\ifx\fichacatalografica\undefined\else
 		\fazfichacatalografica{\fichacatalografica}
@@ -483,13 +491,15 @@
 	\begingroup
 	\resetaplain
 	
-	\listoffigures* %% Lista de figuras
+	\ifx\listadefiguras\undefined\else
+		\listoffigures* %% Lista de figuras
+		\clearpage
+	\fi
 	
-	\clearpage
-	
-	\listoftables* %% Lista de tabelas
-	
-	\clearpage
+	\ifx\listadetabelas\undefined\else
+		\listoftables* %% Lista de tabelas
+		\clearpage
+	\fi
 	
 	\ifx\listascustomizadas\undefined\else
 		\listascustomizadas*
@@ -501,7 +511,10 @@
 	
 	\begin{KeepFromToc}
 		\addtocontents{toc}{\protect\thispagestyle{empty}}
+		\pagestyle{empty}
 		\tableofcontents* %% Sumário
+		\cleardoublepage
+		\pagestyle{headings}
 	\end{KeepFromToc}
 	\endgroup
 }

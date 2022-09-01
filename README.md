@@ -51,6 +51,10 @@ A classe consta com uma lista de parâmetros que modifica os principais elemento
 | ```listadetabelas``` | Comando que funciona como uma *flag* que indica se a lista de tabelas será gerada ou não. Passe o parâmetro com algum argumento (por exemplo, "sim") para gerar a lista de tabelas ou não passe-o caso não queria gerar a lista. | Opcional |
 | ```listascustomizadas``` | Comando para a lista customizada. No arquivo de exemplo há instruções de como criar uma lista customizada | Opcional |
 
+## Orientações da biblioteca
+- Todas as imagens presentes no documento devem possuir fonte.
+- As palavras-chave, tanto no resumo em português quanto no *abstract* em inglês devem ser somente com letras minúsculas.
+
 ## Outros recursos
 Para adicionar apêncices ao documento, a classe fornece o ambiente ```apendices```. Todos os apêncices devem ser adicionados após a inclusão das referências bibliográficas (comando ```\bibliography```). Todos os apêncies deverão estar dentro dos comandos ```\begin{appendices}``` e ```\end{appendices}```, conforme exemplo abaixo:
 

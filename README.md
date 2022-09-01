@@ -29,12 +29,10 @@ A classe consta com uma lista de parâmetros que modifica os principais elemento
 | Parâmetro | Descrição | Tipo  |
 | :---     | :---      | :--- |
 | ```autor``` | Autor(a) do documento | Obrigatório |
-| ```titulopt``` | Título do documento em português | Obrigatório |
-| ```tituloen``` | Título do documento em inglês | Obrigatório caso o idioma seja inglês |
+| ```titulo``` | Título do documento (em inglês ou português) | Obrigatório |
 | ```cidade``` | A cidade aparecerá na capa e na(s) folha(s) de rosto | Obrigatório |
 | ```ano``` | O ano aparecerá na capa e na(s) folha(s) de rosto | Obrigatório |
-| ```versaopt``` | Versão do documento. Deverá ser "Final" quando a  dissertação/tese estiver sendo entregue. Poderá ser, por exemplo, "temporária", "inicial". O texto passado como parâmetro será incluído logo após a palavra "Versão" na folha de rosto em português | Obrigatório |
-| ```versaoen``` | Versão do documento. Deverá  ser "Final" quando a dissertação/tese estiver sendo entregue. Poderá ser, por exemplo, "temporary", "initial". O texto passado como parâmetro será incluído logo antes da palavra "version" na folha de rosto em inglês | Obrigatório caso o idioma seja inglês |
+| ```versao``` | Versão do documento. Deverá ser "Final" quando a  dissertação/tese estiver sendo entregue. Poderá ser, por exemplo, "temporária", "inicial". O texto passado como parâmetro será incluído logo após a palavra "Versão" na folha de rosto (caso o idioma do documento seja português) ou antes da palavra "Version" (caso o idioma do documento seja inglês) | Obrigatório |
 | ```orientador``` | Nome do orientador | Obrigatório quando não houver uma orientadora |
 | ```orientadora``` | Nome da orientadora | Obrigatório quando não houver um orientador |
 | ```coorientador``` | Nome do orientador | Opcional |

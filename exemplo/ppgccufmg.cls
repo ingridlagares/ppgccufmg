@@ -78,12 +78,10 @@
 
 %% Parâmetros ppgcc =========================
 \define@key{ppgcc}{autor}{\defautor{#1}}
-\define@key{ppgcc}{titulopt}{\deftitulopt{#1}} %% Título em português
-\define@key{ppgcc}{tituloen}{\deftituloen{#1}} %% Título em inglês
+\define@key{ppgcc}{titulo}{\deftitulo{#1}} %% Título
 \define@key{ppgcc}{cidade}{\defcidade{#1}}
 \define@key{ppgcc}{ano}{\defano{#1}}
-\define@key{ppgcc}{versaopt}{\defversaopt{#1}} %% Versão do documento em português
-\define@key{ppgcc}{versaoen}{\defversaoen{#1}} %% Versão do documento em português
+\define@key{ppgcc}{versao}{\defversao{#1}} %% Versão do documento
 \define@key{ppgcc}{orientador}{\deforientador{#1}}
 \define@key{ppgcc}{orientadora}{\deforientadora{#1}}
 \define@key{ppgcc}{coorientador}{\defcoorientador{#1}}
@@ -105,12 +103,10 @@
 
 %% Definições dos parâmetros ppgcc
 \newcommand{\defautor}[1]{\def\autor{#1}}
-\newcommand{\deftitulopt}[1]{\def\titulopt{#1}}
-\newcommand{\deftituloen}[1]{\def\tituloen{#1}}
+\newcommand{\deftitulo}[1]{\def\titulo{#1}}
 \newcommand{\defcidade}[1]{\def\cidade{#1}}
 \newcommand{\defano}[1]{\def\ano{#1}}
-\newcommand{\defversaopt}[1]{\def\versaopt{#1}}
-\newcommand{\defversaoen}[1]{\def\versaoen{#1}}
+\newcommand{\defversao}[1]{\def\versao{#1}}
 \newcommand{\deforientador}[1]{\def\orientador{#1}}
 \newcommand{\deforientadora}[1]{\def\orientadora{#1}}
 \newcommand{\defcoorientador}[1]{\def\coorientador{#1}}
@@ -160,13 +156,9 @@
 	\autor
 	
 	\vspace{4cm}
-	
-	\ifx\idiomaen\undefined
-		\textbf{\titulopt}	%% Capa em português
-	\else
-		\textbf{\tituloen} %% Capa em inglês
-	\fi
-	
+
+	\textbf{\titulo}
+		
 	\vfill
 	
 	\cidade\\
@@ -184,19 +176,15 @@
 	
 	\vspace{6cm}
 	
-	\IfStrEq{#1}{pt}{%
-		\textbf{\titulopt}
-	}{%
-		\textbf{\tituloen}	
-	}
-	
+	\textbf{\titulo}
+		
 	\vspace{2cm}
 	
 	\begin{recuoesquerdaoitocm}
 		\IfStrEq{#1}{pt}{%
-			\textbf{Versão} \textbf{\versaopt}
+			\textbf{Versão} \textbf{\versao}
 		}{%
-			\textbf{\versaoen} \textbf{Version}	
+			\textbf{\versao} \textbf{Version}	
 		}
 	\end{recuoesquerdaoitocm}
 
@@ -373,9 +361,9 @@
 		\ClassError{ppgccufmg}{Autor(a) não definido}{Defina o autor(a)}
 	\fi
 	
-	%% Verifica se o título em português foi definido
-	\ifx\titulopt\undefined
-		\ClassError{ppgccufmg}{Título em português não definido}{Defina o título em português}
+	%% Verifica se o título foi definido
+	\ifx\titulo\undefined
+		\ClassError{ppgccufmg}{Título não definido}{Defina o título}
 	\fi
 	
 	%% Verifica se a cidade foi definida
@@ -388,9 +376,9 @@
 		\ClassError{ppgccufmg}{Ano não definido}{Defina o ano}
 	\fi
 	
-	%% Verifica se a versão em português foi definida
-	\ifx\versaopt\undefined
-		\ClassError{ppgccufmg}{Versão em português não definida}{Defina a versão em português}
+	%% Verifica se a versão do documento foi definida
+	\ifx\versao\undefined
+		\ClassError{ppgccufmg}{Versão não definida}{Defina a versão}
 	\fi
 	
 	%% Verifica se o resumo em português foi passado
@@ -411,22 +399,6 @@
 	%% Verifica se as palavras-chave em português foram definidas
 	\ifx\keywords\undefined
 		\ClassError{ppgccufmg}{Palavras-chave do abstract em inglês não definidas}{Defina as palavras-chave}
-	\fi
-	
-	%% Se o usuário definiu o idioma como sendo inglês ---------
-	
-	%% Verifica se o título em inglẽs foi passado
-	\ifx\idiomaen\undefined\else
-		\ifx\tituloen\undefined
-			\ClassError{ppgccufmg}{Título em inglês não definido}{Defina o título em inglês}
-		\fi
-	\fi
-	
-	%% Verifica se a versão do documento em inglẽs foi passada
-	\ifx\idiomaen\undefined\else
-		\ifx\versaoen\undefined
-			\ClassError{ppgccufmg}{Versão em inglês não definida}{Defina a versão em inglês}
-		\fi
 	\fi
 	
 	%% ---------------------------------------------------------
@@ -455,11 +427,11 @@
 	\cleardoublepage
 	\setcounter{page}{1}
 
-	\ifx\idiomaen\undefined\else
+	\ifx\idiomaen\undefined
+		\folhaderosto{pt} %% Folha de rosto em português
+	\else
 		\folhaderosto{en} %% Folha de rosto em inglês
-	\fi
-	
-	\folhaderosto{pt} %% Folha de rosto em português
+	\fi	
 	
 	\ifx\fichacatalografica\undefined\else
 		\fazfichacatalografica{\fichacatalografica}

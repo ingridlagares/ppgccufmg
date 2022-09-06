@@ -100,6 +100,8 @@
 \define@key{ppgcc}{listadetabelas}{\deflistadetabelas{#1}} %% Flag que decide se adiciona ou não a lista de tabelas no documento
 \define@key{ppgcc}{listascustomizadas}{\deflistascustomizadas{#1}}
 
+%% Adiciona a palavra "Appendix" (ou "Apêndice") no sumário antes de "A", "B", ...
+\renewcommand\cftappendixname{\appendixname~}
 
 %% Definições dos parâmetros ppgcc
 \newcommand{\defautor}[1]{\def\autor{#1}}
@@ -125,6 +127,7 @@
 \newcommand{\deflistadetabelas}[1]{\def\listadetabelas{#1}}
 \newcommand{\deflistascustomizadas}[1]{\def\listascustomizadas{#1}}
 %% ==========================================
+
 
 %% Comandos gerais ==========================
 
@@ -301,6 +304,7 @@
 \newcommand{\fazagradecimentos}[1]{
 	\begingroup
 		\resetaplain
+		\pagestyle{plain}
 		\ifx\idiomapt\undefined
 			\chapter*{Acknowledgments}
 		\else
@@ -327,6 +331,7 @@
 \newcommand{\fazresumo}[1]{
 	\begingroup
 		\resetaplain
+		\pagestyle{plain}
 		\chapter*{Resumo}
 		\input{#1}
 		
@@ -340,6 +345,7 @@
 \newcommand{\fazabstracten}[1]{
 	\begingroup
 		\resetaplain
+		\pagestyle{plain}
 		\chapter*{Abstract}
 		\input{#1}
 		
@@ -478,8 +484,6 @@
 	\fi
 	
 	\clearpage
-	
-	%% TODO: Comando para adicionar outros elementos pré-textuais, como por exemplo lista de algoritmos, erratas, ...
 	
 	\begin{KeepFromToc}
 		\addtocontents{toc}{\protect\thispagestyle{empty}}

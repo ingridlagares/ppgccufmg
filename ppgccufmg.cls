@@ -479,15 +479,13 @@
 		\clearpage
 	\fi
 	
-	\ifx\listascustomizadas\undefined\else
-		\listascustomizadas*
-	\fi
-	
-	\clearpage
-	
 	\begin{KeepFromToc}
 		\addtocontents{toc}{\protect\thispagestyle{empty}}
 		\pagestyle{empty}
+		\ifx\listascustomizadas\undefined\else
+			\listascustomizadas
+			\clearpage
+		\fi		
 		\tableofcontents* %% Sumário
 		\cleardoublepage
 		\pagestyle{headings}

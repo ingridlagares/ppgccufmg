@@ -498,7 +498,7 @@
 %% Comandos que serão exercutados logo após o comando \begin{document}
 \AtBeginDocument{
 	
-	\setsecnumdepth{subsection} %% Define a profundidade das seções (permite capítulo, seção e sub-seção)
+	\setsecnumdepth{subsubsection} %% Define a profundidade das seções (permite capítulo, seção, sub-seção e sub-sub-seção)
 	\OnehalfSpacing %% Espaçamento de 1,5cm entre linhas
 	\setlength{\parindent}{1.25cm} %% Recuo de 1,25 cm à esquerda em parágrafos
 	\setheadfoot{\baselineskip}{1.5cm} %% Define o tamanho do header e o espaço entre o header e o texto
@@ -508,6 +508,9 @@
 	\setaftersecskip{1.5cm} %% Espaçamento depois do título da seção
 	\setbeforesubsecskip{1.5cm} %% Espaçamento antes do título da sub-seção
 	\setaftersubsecskip{1.5cm} %% Espaçamento depois do título da sub-seção
+	\setbeforesubsubsecskip{1.5cm} %% Espaçamento antes do título da sub-sub-seção
+	\setaftersubsubsecskip{1.5cm} %% Espaçamento depois do título da sub-sub-seção
+	\setcounter{tocdepth}{3} %% Profundidade dos elementos do sumário. 3 = sub-sub-seção
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

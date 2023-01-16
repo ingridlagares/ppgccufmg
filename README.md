@@ -1,7 +1,26 @@
 # Classe LaTeX ppgccufmg
-Uma classe $\LaTeX$ para dissertações, teses e propostas do Programa de Pós-Graduação em Ciência da Computação (PPGCC) da Universidade Federal de Minas Gerais (UFMG). A classe foi feita de modo a atender todas as diretrizes para normalização de trabalhos acadêmicos da UFMG determinadas pelo Reposiório Institucional da UFMG (versão 2020) (arquivo ```Diretrizes - Biblioteca UFMG.pdf```).
+Uma classe $\LaTeX$ para dissertações, teses e propostas do Programa de Pós-Graduação em Ciência da Computação (PPGCC) da Universidade Federal de Minas Gerais (UFMG). A classe foi feita de modo a atender todas as diretrizes para normalização de trabalhos acadêmicos da UFMG determinadas pelo Reposiório Institucional da UFMG (versão 2022) (arquivo ```Diretrizes - Biblioteca UFMG.pdf```).
 
 A criação desta classe foi inspirada na classe criada por Vilar Fiuza da Camara Neto e Eduardo Freire Nakamura.
+
+# Orientações da biblioteca
+Para que seu trabalho seja aceito, deve-se seguir as seguintes orientações para formatação:
+- **Imagens:**
+    - A legenda da imagem deve estar **acima** dela. Para isto o comando ```\caption``` deve vir antes do comando ```\includegraphics``` dentro do ambiente ```\begin{figure}...\end{figure}```.
+    - A fonte deve estar **abaixo** da imagem e em tamanho menor. O texto deve ser incluído dentro do comando ```\small{}``` logo após o comando ```\includegraphics``` e dentro do comando ```\begin{figure}...\end{figure}```. 
+    - Exemplo de uso:
+    ```
+    \begin{figure}[h]
+        \centering
+        \caption{Diagrama de Venn.}
+        \label{fig:exemplo}
+        \includegraphics[width=\textwidth]{img/diagrama_de_venn.jpg}
+        \small{Fonte: Elaborado pelo autor(a).}
+    \end{figure}
+    ```
+- **Palavras-chave:** Tanto no resumo em português quanto no *abstract* em inglês, elas devem ser redigidas com a inicial maiúscula, separadas entre si com ponto final e finalizadas
+também com ponto final.
+- **Referências:** Para trabalhos escritos em português, o título da seção de referências deve ser *"Referências"* e não *"Referências Bibliográficas"*, que é o padrão do pacote ```natbib```. No arquivo de exemplo há o comando ```\renewcommand\bibname{Referências}``` que faz esta mudança.
 
 # Como utilizar a classe
 Para utilizar os recursos da classe, o arquivo ```pgccufmg.cls``` deve estar no mesmo diretório que o arquivo ```.tex``` principal. Há um exemplo de utilização da classe no diretório ```exemplo``` deste repositório. A classe foi testada tanto com o [TeXstudio](https://www.texstudio.org/) para compilações locais tanto com o [Overleaf](https://overleaf.com/).
@@ -50,10 +69,6 @@ A classe consta com uma lista de parâmetros que modifica os principais elemento
 | ```listadefiguras``` | Comando que funciona como uma *flag* que indica se a lista de figuras será gerada ou não. Passe o parâmetro com algum argumento (por exemplo, "sim") para gerar a lista de figuras ou não passe-o caso não queria gerar a lista. | Opcional |
 | ```listadetabelas``` | Comando que funciona como uma *flag* que indica se a lista de tabelas será gerada ou não. Passe o parâmetro com algum argumento (por exemplo, "sim") para gerar a lista de tabelas ou não passe-o caso não queria gerar a lista. | Opcional |
 | ```listascustomizadas``` | Comando para a lista customizada. No arquivo de exemplo há instruções de como criar uma lista customizada | Opcional |
-
-## Orientações da biblioteca
-- Todas as imagens presentes no documento devem possuir fonte.
-- As palavras-chave, tanto no resumo em português quanto no *abstract* em inglês devem ser somente com letras minúsculas.
 
 ## Outros recursos
 Para adicionar apêncices ao documento, a classe fornece o ambiente ```apendices```. Todos os apêncices devem ser adicionados após a inclusão das referências bibliográficas (comando ```\bibliography```). Todos os apêncies deverão estar dentro dos comandos ```\begin{appendices}``` e ```\end{appendices}```, conforme exemplo abaixo:

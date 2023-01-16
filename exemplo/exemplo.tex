@@ -49,8 +49,8 @@
 		folhadeaprovacao={folhadeaprovacao.pdf},
 		resumo={resumo.tex}, %% Resumo em português
 		abstracten={abstract.tex}, %% Abstract em inglês
-		palavraschave={matemática, computação.}, %% Palavras-chave do resumo
-		keywords={math, computing.}, %% Palavras-chave do abstract
+		palavraschave={Matemática. Computação.}, %% Palavras-chave do resumo
+		keywords={Math. Computing.}, %% Palavras-chave do abstract
 		dedicatoria={dedicatoria.tex}, %% Arquivo .tex contendo a dedicatória
 		agradecimentos={agradecimentos.tex},
 		epigrafe={Truth and lie are opposite things.},
@@ -93,9 +93,10 @@
 		
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=\textwidth]{img/dcc.jpg}
-			\caption{Prédio do DCC em 2016. Fonte:~\url{http://40anos.dcc.ufmg.br/galeria}}
+			\caption{Prédio do DCC em 2016.}
 			\label{fig:exemplo}
+			\includegraphics[width=\textwidth]{img/dcc.jpg}
+			\small{Fonte:~\url{http://40anos.dcc.ufmg.br/galeria}}
 		\end{figure}
 	
 		\lipsum[5]
@@ -128,7 +129,8 @@
 			Citações aleatórias para fazer com que as referências bibliográficas ocupem	mais de uma página: \cite{bichsel92simple, dror01statistics, guisser92new, dwork2006calibrating, sweeney2002k}.
 			
 		%% Referências
-		\renewcommand\bibname{Referências} %% Utilizado quando o texto está em português, a pedido da biblioteca
+%		\renewcommand\bibname{Referências} %% Trabalhos em português
+		\renewcommand\bibname{References} %% Trabalhos em inglês
 		\bibliographystyle{plain}
 		\bibliography{referencias}
 		

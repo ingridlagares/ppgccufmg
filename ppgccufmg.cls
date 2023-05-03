@@ -470,13 +470,19 @@
 	\resetaplain
 	
 	\ifx\listadefiguras\undefined\else
-		\listoffigures* %% Lista de figuras
-		\clearpage
+		\begingroup
+			\pagestyle{empty}
+			\listoffigures* %% Lista de figuras
+			\clearpage
+		\endgroup
 	\fi
 	
 	\ifx\listadetabelas\undefined\else
-		\listoftables* %% Lista de tabelas
-		\clearpage
+		\begingroup
+			\pagestyle{empty}
+			\listoftables* %% Lista de tabelas
+			\clearpage
+		\endgroup
 	\fi
 	
 	\begin{KeepFromToc}

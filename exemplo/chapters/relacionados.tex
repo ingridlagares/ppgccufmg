@@ -1,0 +1,41 @@
+Pelo fato  da OGC API ainda estar em desenvolvimento, com vários documentos ainda em fase de esboço, as referências abordadas para esse trabalho consideram três aspectos: 
+
+\begin{itemize}
+    \item Os documentos da OGC sobre a família de APIs e as discussões realizadas ao longo de \textit{Code Sprints}, organizadas para que os desenvolvedores participem da elaboração dos documentos.
+    \item Os estudos existentes sobre as limitações percebidas do uso de Web Services no padrão OWS.
+    \item Comparações sistemáticas dos diferentes tipos de abordagens para arquitetura e aplicação de APIs, com foco nas diferenças entre SOAP, o protocolo usado principalmente para Web Services, e REST, utilizado em outras abordagens de API incluindo a OGC API.
+    \item Estudos de caso com implementações das padronizações mais recentes da OGC API.
+\end{itemize}
+
+\section{OGC Web Services}
+
+% Para a dissertação: caberia aqui uma breve descrição do funcionamento do modelo de Web Services, para depois destacar as limitações
+
+Vários pesquisadores de Sistemas de Informação Geográficos estudam as limitações atuais de IDEs e do modelo de serviços Web da OGC, que inclui WMS (Web Map Service), WFS (Web Feature Service), WCS (Web Coverage Service) e outros. Trabalhos como INSPIRE \citep{silvadiretiva} e TerraBrasilis \citep{fg2019terrabrasilis} estudam melhorias para avançar no uso de IDEs para analisar dados científicos. O TerraBrasilis está em conformidade com os padrões tradicionais da OGC (WFS e WMS), mas foi necessário desenvolver uma API própria para viabilizar estudos científicos com uso dos dados. % para a dissertação: mais detalhes aqui; que funções foram criadas para essa API, etc.
+
+A estrutura da maioria das aplicações web geoespaciais são compatíveis e em conformidade com o serviço do antigo padrão da OGC, como, por exemplo: o INDE (Infraestrutura Nacional de Dados Espaciais) \citep{indewms}, a IDE da Plataforma Brumadinho UFMG \citep{brumadinho}, o Geoportal da IDE-BA \citep{ideba}, 
+o IDE-BHGEO \citep{bhgeo}, o TerraBrasilis \citep{fg2019terrabrasilis} e o LindaGeo \citep{lindageo}. A existência de tantas IDEs nacionais relevantes destacam a importância deste trabalho.
+
+\section{OGC API}
+
+% para a dissertação: como na seção anterior, cabe aquyi uma breve descrição da arquitetura de API que a OGC propõe. 
+
+De acordo com \cite{simoes2022datos}, a OGC API promove uma forma mais efetiva e popular de permitir o desenvolvimento de software de forma ágil, além de melhorar a encontrabilidade de dados espaciais. De acordo com a autora, o desenvolvimento de APIs REST é facilitado por ser flexível, autodocumentado, multiparte e por aproveitar de práticas web atuais. \cite{aihkisalo2012latencies} também concluem que uma API REST é mais fácil de desenvolver e implementar do que Web Services, uma vez que o protocolo REST está intimamente relacionado ao protocolo HTTP, tornando-se mais amigável ao ambiente Web.
+
+Em um estudo de caso utilizando OGC API em uma aplicação, \cite{simoes2022serving} afirma que a OGC API ainda preciso de suporte de OGC Web Service, pois não está madura o suficiente e ainda não existem implementações o suficiente. O antigo padrão para servir metadados, por exemplo, ainda é mais seguro que o novo padrão, principalmente no que diz respeito à compatibilidade com grandes organizações responsáveis pela catalogação de metadados de instituições, países e continentes inteiros. Porém, considerando o aspecto de desenvolvimento, a autora afirma que com a nova família de padrões as APIs irão permitir uma melhor integração com outras tecnologias, irá facilitar a encontrabilidade de dados através de máquinas de busca como o Google, e o uso de OpenAPI poderá permitir documentação de APIs portáveis e auto-contidas.
+
+% para a dissertação: algum trab rel que fale de limitações e do estado de desenvolvimento? Ou ref a algo online que indique o que está ainda evoluindo e como
+
+%Em relação a documentação sobre bons princípios e requisitos para publicação de dados espaciais na Web, existem diversos autores que tratam essas questões com o objetivo de conduzir a elaboração de futuras padronizações  e produtores de geoinformação \cite{van2019best, dataweb,masser2019geographic,inspire}.
+
+\section{Análises comparativas entre Web Services e API}
+  
+Foram consultados trabalhos de pesquisa que comparam o uso de diferentes tipos de abordagens para arquitetura e aplicação de APIs, com foco nas diferenças entres SOAP, o protocolo usado principalmente para Web Services, e REST, utilizado em outras abordagens de API incluindo a OGC API.  % para a dissertação: avaliar a viabilidade e o interesse de comparar a arquitetura de API da OGC com as de dados convencionais; talvez na seção anterior, ou até em uma seção própria.
+
+\cite{mumbaikar2013web} desenvolveu duas aplicações com as mesmas funcionalidades, uma servindo protocolo REST e outra SOAP, para analisar a diferença de performance entre elas. Os resultados obtidos pelo autor foram em termos de tamanho de mensagem e tempo requerido para o processamento em dois tipos diferentes de requisições - com float e string, e com multimídia. Já Kishor Wagh \cite{wagh2012comparative} realiza uma comparação com métricas não-mensuráveis entre aplicações mobile SOAP e REST, visando as características arquiteturais de ambos os protocolos.
+
+\citep{tihomirovs2016comparison} reuniram uma série de estudos relacionados aos protocolos REST e SOAP. O artigo sumariza vários trabalhos que avaliam métricas para comparar os protocolos. O autor utilizou uma ferramenta para encontrar todas as fontes que possuem como palavra-chave SOAP, REST e seus sinônimos. A partir disso foram aplicados critérios de exclusão dos artigos com base na sua relevância, idioma e abordagem. Foram analisados quatorze artigos, que trouxeram resultados relevantes de acordo com cada categoria de métrica - custo, esforço para desenvolver, linhas de código, velocidade de execução, memória, erros, funcionalidade, qualidade, complexidade, eficiência, confiabilidade e manutenibilidade.  
+
+Em 2011, \citep{lopez2011review} executaram uma revisão nos Web Services em conformidade com a OGC na Europa.  O trabalho visava rastrear endpoints públicos de serviços geoespaciais e encontrou diversos desafios. O resultado comparou a quantidade de Web Service públicos encontráveis e não encontráveis através das máquinas de busca, sendo somente 55,4\% de serviços públicos encontráveis por máquina de busca. O trabalho visou apenas serviços compatíveis com a OGC Web Service e não comparar métricas de performance.
+
+Os trabalhos de pesquisa encontrados que comparam os protocolos SOAP e REST não consideram serviços de geoinformação, portanto esta dissertação visa expandir esses resultados para Sistemas de Informação Geográfica. %% elaborar mais este argumento -- dizer por que ou em que os dados geo modificariam as comparações acima. 

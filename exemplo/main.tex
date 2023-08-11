@@ -1,0 +1,91 @@
+\documentclass[
+	msc,portugues
+]{../ppgccufmg}
+
+\usepackage[brazil]{babel} %% se o documento for em português, OU
+%\usepackage[latin1]{inputenc}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage{float}
+
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue, %% Cor dos links do sumário
+	citecolor=red, %% Cor dos links das citações      
+	urlcolor=magenta, %% Cor das urls
+]{hyperref}
+
+%% Exemplo de lista customizada ==================
+%% Para criar uma lista customizada (como Lista de Algoritmos, Lista de Exemplos) que ficará juntamente com as Lista de Figuras e Lista de Tabelas, execute os 3 comandos abaixo substituindo "algoritmos" pelo tipo de lista que estará criando. Para adicionar a lista ao documento, deverá passar o seguinte parâmetro no comando \ppgccufmg:
+%% \ppgccufmg{
+%% 		...
+%% 		listacustomizada={\listadealgoritmos}
+%% }
+%% \newfloat[chapter]{algoritmo}{lol}{Algoritmo}
+%% \newcommand{\listaalgoritmosname}{Lista de Algoritmos} %% Título da lista
+%%\newlistof{listadealgoritmos}{lol}{\listaalgoritmosname} %% O primeiro parâmetro é o nome da lista, e este deverá ser passado no parâmetro listacustomizada={\nomedalista}
+%% \newlistentry{algoritmo}{lol}{0} %% Nome do ambiente de cada algoritmo, e.g., \begin{algoritmo} ... \end{algoritmo}
+
+%% **** Caso não haja nenhuma lista adicional, os comandos acima podem ser apagados. ****
+%% ===============================================
+
+\begin{document}
+	\ppgccufmg{
+		autor={Ingrid Lagares Santana}, %% Autor(a)
+		titulo={APIs para Infraestruturas de Dados Espaciais: análise qualitativa e de desempenho}, %% Título
+		cidade={Belo Horizonte},
+		ano={2023},
+		versao={Final}, %% Versão do documento
+		orientador={Clodoveu Davis Jr.}, %% Para masculino
+%		orientadora={Fulana de Tal}, %% Para feminino
+%		coorientador={Ciclano}, %% Para masculino
+%		coorientadora={Ciclana}, %% Para feminino
+		fichacatalografica={fichacatalografica.pdf},
+		folhadeaprovacao={folhadeaprovacao.pdf},
+		resumo={resumo.tex}, %% Resumo em português
+		abstracten={abstract.tex}, %% Abstract em inglês
+		palavraschave={Matemática. Computação.}, %% Palavras-chave do resumo
+		keywords={Math. Computing.}, %% Palavras-chave do abstract
+		dedicatoria={dedicatoria.tex}, %% Arquivo .tex contendo a dedicatória
+		agradecimentos={agradecimentos.tex},
+		epigrafe={Know all the theories, master all the techniques, but as you touch a human soul be just another human soul.},
+		epigrafeautor={Carl Jung},
+		listadefiguras={sim}, %% Remova (ou comente) este parâmetro para remover a lista de figuras
+		listadetabelas={sim}, %% Remova (ou comente) este parâmetro para remover a lista de tabelas
+%		listascustomizadas={\listadealgoritmos} %% Lista customizada (e.g., lista de algoritmos). 
+	}
+	
+
+        \chapter{Introdução}\label{sec:introducao}
+        \input{chapters/introducao}
+        
+        
+        \chapter{Revisão Bibliográfica}\label{sec:referencia}
+        \input{chapters/relacionados}
+        \chapter{Metodologia}\label{sec:metodologia}
+        \input{chapters/metodologia}
+        %\chapter{Avaliação dos Resultados}\label{sec:resultados}
+        %\input{chapters/resultados}
+        %\chapter{Conclusão}\label{sec:conclusao}
+        %\input{chapters/conclusao}
+	
+			
+		%% Referências
+%		\renewcommand\bibname{Referências} %% Trabalhos em português
+		\renewcommand\bibname{References} %% Trabalhos em inglês
+		\bibliographystyle{plain}
+		\bibliography{referencias}
+		
+		\begin{apendices}
+            \chapter{Levantamento entre Desenvolvedores}
+            \label{appendix:survey_questions}
+            \input{chapters/survey_questions}
+            \chapter{Resultado da Pesquisa Qualitativa}
+            \label{appendix:results_qual}
+            \input{chapters/results_qual}
+                \chapter{Resultado da Pesquisa Quantitativa}    \label{appendix:results_quant}
+            \input{chapters/results_quant}
+		\end{apendices}
+		
+\end{document}
